@@ -1,166 +1,106 @@
 // Product Detail Page Functionality
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Initialize product detail functionality
+// product-detail.js
+
+document.addEventListener("DOMContentLoaded", () => {
   initializeProductDetail();
-
-  // Setup tab navigation
   setupTabNavigation();
-
-  // Setup quantity controls
   setupQuantityControls();
-
-  // Setup add to cart button
   setupAddToCart();
-
-  // Setup color selection
   setupColorSelection();
 });
 
-// Initialize product detail functionality
 function initializeProductDetail() {
-  console.log("Product detail page initialized");
-
-  // Setup thumbnail gallery
   setupThumbnailGallery();
 }
 
-// Setup thumbnail gallery
 function setupThumbnailGallery() {
   const thumbnails = document.querySelectorAll(".thumbnail");
+  const mainImg    = document.getElementById("main-product-img");
+  if (!mainImg) return;
 
-  thumbnails.forEach((thumbnail) => {});
+  thumbnails.forEach(thumb => {
+    thumb.addEventListener("click", () => {
+      mainImg.src = thumb.src;
+      thumbnails.forEach(t => t.classList.remove("active"));
+      thumb.classList.add("active");
+    });
+  });
 }
 
-// Setup tab navigation
 function setupTabNavigation() {
-  const tabButtons = document.querySelectorAll(".tab-btn");
+  const tabButtons  = document.querySelectorAll(".tab-btn");
   const tabContents = document.querySelectorAll(".tab-content");
 
-  tabButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      // Get tab id from data attribute
-      const tabId = this.getAttribute("data-tab");
+  tabButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const tabId = button.dataset.tab;
 
-      // Remove active class from all buttons and content
-      tabButtons.forEach((btn) => btn.classList.remove("active"));
-      tabContents.forEach((content) => content.classList.remove("active"));
+      tabButtons.forEach(b => b.classList.remove("active"));
+      tabContents.forEach(c => c.classList.remove("active"));
 
-      // Add active class to current button and content
-      this.classList.add("active");
-
-      const activeContent = document.getElementById(tabId);
-      activeContent.classList.add("active");
+      button.classList.add("active");
+      document.getElementById(tabId).classList.add("active");
     });
   });
 }
 
-// Setup quantity controls
 function setupQuantityControls() {
-  const decreaseBtn = document.getElementById("decrease-qty");
-  const increaseBtn = document.getElementById("increase-quantity");
-  const quantityInput = document.getElementById("quantity");
+  const dec = document.getElementById("decrease-quantity");
+  const inc = document.getElementById("increase-quantity");
+  const inp = document.getElementById("quantity");
 
-  if (decreaseBtn && quantityInput) {
-    decreaseBtn.addEventListener("click", function () {
-      let currentValue = parseInt(quantityInput.value);
-      if (currentValue > 1) {
-        quantityInput.value = currentValue - 1;
-      }
-    });
-  }
+  if (dec && inp) dec.addEventListener("click", () => {
+    let v = Math.max(1, parseInt(inp.value, 10) - 1);
+    inp.value = v;
+  });
 
-  if (increaseBtn && quantityInput) {
-    increaseBtn.addEventListener("click", function () {
-      let currentValue = parseInt(quantityInput.value);
-      quantityInput.value = currentValue + 1;
-    });
-  }
+  if (inc && inp) inc.addEventListener("click", () => {
+    inp.value = parseInt(inp.value, 10) + 1;
+  });
 
-  if (quantityInput) {
-    quantityInput.addEventListener("change", function () {
-      // Ensure value is at least 1
-      if (this.value < 1) {
-        this.value = 1;
-      }
-    });
-  }
+  if (inp) inp.addEventListener("change", () => {
+    if (parseInt(inp.value, 10) < 1) inp.value = 1;
+  });
 }
 
-// Setup add to cart button
 function setupAddToCart() {
-  const addToCartBtn = document.getElementById("add-to-cart");
+  const btn = document.getElementById("add-to-cart");
+  if (!btn) return;
 
-  if (addToCartBtn) {
-    addToCartBtn.addEventListener("click", function () {
-      // Get product details
-      const productId = this.dataset.productId;
-      const productName = this.dataset.productName;
-      const productPrice = this.dataset.productPrice;
+    btn.addEventListener("click", () => {
+    const { productId, productName, productPrice, productImage } = btn.dataset;
+    const quantity = Math.max(
+      1,
+      parseInt(document.getElementById("quantity").value, 10)
+    );
 
-      // Get selected color
-      const selectedColor = getSelectedColor();
-
-      // Get quantity
-      const quantity = parseInt(document.getElementById("quantity").value);
-
-      // Add to cart
-      addToCart(productId, productName, productPrice);
-
-      // Show success message
-      showAddToCartMessage();
-    });
-  }
-}
-
-// Get selected color
-function getSelectedColor() {
-  const selectedColorElement = document.querySelector(".color-option.selected");
-
-  if (selectedColorElement) {
-    return selectedColorElement.dataset.color;
-  }
-
-  return null;
-}
-
-// Show add to cart success message
-function showAddToCartMessage() {
-  // Create message element
-  const messageElement = document.createElement("div");
-  messageElement.className = "add-to-cart-message";
-  messageElement.textContent = "Product added to cart!";
-
-  // Add to body
-  document.body.appendChild(messageElement);
-
-  // Show message
-  setTimeout(() => {
-    messageElement.classList.add("show");
-  }, 10);
-
-  // Remove after 3 seconds
-  setTimeout(() => {
-    messageElement.classList.remove("show");
-
-    // Remove from DOM after animation
-    setTimeout(() => {
-      messageElement.remove();
-    }, 300);
+    // call your cart.js function
+    addToCart(productId, productName, productPrice, quantity, productImage);
+    showAddToCartMessage();
+    updateCartCount();
   });
-}
+} 
 
-// Setup color selection
 function setupColorSelection() {
-  const colorOptions = document.querySelectorAll(".color-option");
-
-  colorOptions.forEach((option) => {
-    option.addEventListener("click", function () {
-      // Remove selected class from all options
-      colorOptions.forEach((opt) => opt.classList.remove("selected"));
-
-      // Add selected class to clicked option
-      this.classList.add("selected");
+  document.querySelectorAll(".color-option").forEach(opt => {
+    opt.addEventListener("click", () => {
+      document.querySelectorAll(".color-option")
+              .forEach(o => o.classList.remove("selected"));
+      opt.classList.add("selected");
     });
   });
+}
+
+function showAddToCartMessage() {
+  const msg = document.createElement("div");
+  msg.className = "add-to-cart-message";
+  msg.textContent = "Product added to cart!";
+  document.body.appendChild(msg);
+
+  setTimeout(() => msg.classList.add("show"), 10);
+  setTimeout(() => {
+    msg.classList.remove("show");
+    setTimeout(() => msg.remove(), 300);
+  }, 3000);
 }

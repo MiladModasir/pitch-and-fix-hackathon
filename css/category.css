@@ -1,0 +1,160 @@
+.nav-items {
+  display: flex;
+  list-style: none;
+}
+.nav-item a {
+  padding: .5rem 1rem;
+  font-weight: 500;
+  color: #333;
+  transition: color .2s, border-bottom .2s;
+  border-bottom: 2px solid transparent;
+}
+.nav-item a:hover,
+.nav-item a.active {
+  color: #0078d4;
+  border-bottom-color: #0078d4;
+}
+.category-listing h1{
+  text-align: center;
+}
+
+.category-grid .category-card {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+}
+
+/* Back button */
+.category-section .back-btn {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #0078d4;
+  font-weight: 500;
+  text-decoration: none;
+}
+.category-section .back-btn:hover {
+  text-decoration: underline;
+}
+.search-container {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+#no-results {
+  margin-top: 1rem;
+  color: #f44336;
+}
+
+
+/* Section Title */
+.category-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Product grid inside a category detail */
+.category-section .product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem; 
+}
+.search-container {
+  position: relative;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.search-icon {
+  font-size: 1.2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 7px;
+  left: 250px;
+  right: 0;
+}
+
+.search-input {
+  width: 300px;
+  padding: 0.5rem 2rem 0.5rem 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: width 0.3s;
+}
+
+/* initially hidden */
+.hidden {
+  display: none;
+}
+
+.no-result {
+  color: #888;
+  margin-top: 0.5rem;
+}
+.product-card{
+  max-width: fit-content;
+  background-size: cover;
+  
+}
+
+/* 1. Force all product‐image containers to the same aspect ratio */
+.product-card .product-image img {
+  max-height: 100%;
+  width: 100%;
+  align-items: center;
+  object-fit: cover;
+}
+
+/* 2. Ensure “Add to Cart” always sits flush at the bottom */
+.product-details {
+  flex-grow: 1;         /* take up leftover space above the button */
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+}
+
+.product-details .add-to-cart-btn {
+  margin-top: auto;     /* push it down */
+}
+
+
+
+
+/* Responsive breakpoints */
+@media (max-width: 968px) {
+  .category-section .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 576px) {
+  .category-section .product-grid {
+    grid-template-columns: 1fr;
+  }
+  .category-section {
+    text-align: center;
+  }
+  .product-card {
+    margin: auto;
+    width: 100%;
+  }
+  .product-image {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-size: contain;
+    background-position: center;
+  }
+  .product-image img {
+    width: 100%;
+    height: auto;
+  }
+}

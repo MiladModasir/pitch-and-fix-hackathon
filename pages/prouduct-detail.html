@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- FIX: added responsive viewport meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail – ShopEase</title>
+    <link rel="stylesheet" href="../css/product-detail.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="theme-panel">
+        <div class="theme-body">
+        <span>Change theme</span>
+        <div class="btn-group">
+            <button data-toggle="Light" class="switcher-btn active">Light</button>
+            <button data-toggle="dark" class="switcher-btn">Dark</button>
+        </div>
+        <button class="theme-tab">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        </div>
+        </div>
+    <header>
+        <div class="logo-container">
+            <!-- FIX: corrected path to logo image -->
+            <img src="../images/ShopEase-logo.svg" alt="ShopEase Logo" class="logo">
+        </div>
+        <nav class="main-nav">
+            <ul id="nav-items">
+                <!-- FIX: changed duplicate IDs to classes -->
+                <li class="nav-item"><a href="../index.html">Home</a></li>
+                <li class="nav-item"><a href="./categories.html">Categories</a></li>
+                <li class="nav-item"><a href="./about.html">About Us</a></li>
+                <li class="nav-item"><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="cart-container">
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+            <div class="cart-dropdown" style="display: none;">
+                <div class="cart-items"></div>
+                <div class="cart-total">
+                    <p>Total: $<span id="cart-total-amount">0.00</span></p>
+                </div>
+                <button id="checkout-btn"  class="checkout-btn">Checkout</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="product-detail-container">
+        <div class="product-images">
+            <div class="main-image">
+                <!-- FIX: ensured correct selector and src -->
+                <img id="main-product-img" src="../images/product1.jpg" alt="Wireless Headphones">
+            </div>
+            <div class="thumbnail-gallery">
+                <!-- FIX: removed broken onclicks; JS now handles clicks -->
+                <img src="../images/product1.jpg" alt="Front view" class="thumbnail active">
+                <img src="../images/product1-side.jpg" alt="Side view" class="thumbnail">
+                <img src="../images/product1-back.jpg" alt="Back view" class="thumbnail">
+                <img src="../images/product1-case.jpg" alt="With case" class="thumbnail">
+            </div>
+        </div>
+
+        <div class="product-info">
+            <h1 class="product-title">Wireless Headphones</h1>
+            <div class="product-rating">
+                <i class="fas fa-star"></i><!-- etc -->
+                <span class="rating-count">(42 reviews)</span>
+            </div>
+            <div class="product-price">
+                <span class="original-price">$120.00</span>
+                <!-- FIX: added missing $ to sale price -->
+                <span class="sale-price">$99.99</span>
+                <span class="discount-badge">Save 17%</span>
+            </div>
+            <div class="product-description">
+                <p>Crystal clear sound with active noise cancellation and 30-hour battery life.</p>
+                <ul class="features-list">
+                    <li>Active noise cancellation</li>
+                    <li>Bluetooth 5.0</li>
+                    <li>30-hour battery life</li>
+                    <li>Memory foam cushions</li>
+                    <li>Built-in microphone</li>
+                    <li>Quick charge (15 min → 3 hr)</li>
+                </ul>
+            </div>
+            <div class="product-variants">
+                <h3>Color:</h3>
+                <div class="color-selector">
+                    <!-- FIX: unified class usage -->
+                    <div class="color-option selected" data-color="black" style="background:#000;"></div>
+                    <div class="color-option" data-color="white" style="background:#fff;border:1px solid #ddd;"></div>
+                    <div class="color-option" data-color="blue" style="background:#0078d4;"></div>
+                </div>
+            </div>
+
+            <div class="quantity-selector">
+                <h3>Quantity:</h3>
+                <div class="quantity-controls">
+                    <!-- FIX: corrected IDs for buttons -->
+                    <button id="decrease-quantity" class="quantity-btn">−</button>
+                    <input type="number" id="quantity" value="1" min="1" max="10"/>
+                    <button id="increase-quantity" class="quantity-btn">+</button> 
+            </div>
+            </div>
+            <div class="purchase-actions">
+                <!-- FIX: added missing data-product-price attributes -->
+                <button id="add-to-cart" 
+                class="add-to-cart-btn" 
+                data-product-id="1"
+                    data-product-name="Wireless Headphones" 
+                    data-product-price="99.99"
+                    data-product-image="../images/product1.jpg">
+                    Add to Cart</button>
+                <button id="buy-now" class="buy-now-btn">Buy Now</button>
+                <button id="add-to-wishlist" class="wishlist-btn"><i class="far fa-heart"></i> Wishlist</button>
+            </div>
+
+            <div class="product-meta">
+                <p class="stock-status in-stock">In Stock</p>
+                <p class="sku">SKU: WH-100-BLK</p>
+                <p class="categories">Categories:
+                    <a href="categories.html#electronics">Electronics</a>,
+                    <a href="categories.html#audio">Audio</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <section class="product-tabs">
+        <div class="tabs-header">
+            <!-- FIX: added missing data-tab attribute -->
+            <button class="tab-btn active" data-tab="description">Description</button>
+            <button class="tab-btn" data-tab="specifications">Specifications</button>
+            <button class="tab-btn" data-tab="reviews">Reviews</button>
+            <button class="tab-btn" data-tab="shipping">Shipping & Returns</button>
+        </div>
+        <div class="tabs-content">
+            <div id="description" class="tab-content active">
+                <h2>Description</h2>
+                <p>Exceptional audio experience with crystal clear sound and ANC.</p>
+            </div>
+
+            <div id="specifications" class="tab-content">
+                <h2>Specifications</h2>
+                <table class="specs-table">
+                    <!-- FIX: closed missing </table> tag -->
+                    <tr>
+                        <th>Driver</th>
+                        <td>40 mm</td>
+                    </tr>
+                    <tr>
+                        <th>Freq. Resp.</th>
+                        <td>20 Hz–20 kHz</td>
+                    </tr>
+                    <tr>
+                        <th>Impedance</th>
+                        <td>32 Ω</td>
+                    </tr>
+                    <tr>
+                        <th>Bluetooth</th>
+                        <td>5.0</td>
+                    </tr>
+                    <tr>
+                        <th>Battery</th>
+                        <td>30 hr (ANC on), 40 hr (ANC off)</td>
+                    </tr>
+                    <tr>
+                        <th>Charge Time</th>
+                        <td>2 hr</td>
+                    </tr>
+                    <tr>
+                        <th>Weight</th>
+                        <td>250 g</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="reviews" class="tab-content">
+                <h2>Reviews</h2>
+                <div class="user-reviews">
+                    <!-- fixed all review divs with proper closing tags -->
+                    <div class="review">
+                        <h4>John D. <small>Mar 15, 2025</small></h4>
+                        <p>Amazing clarity and ANC!</p>
+                    </div>
+                    <div class="review">
+                        <h4>Emma S. <small>Feb 28, 2025</small></h4>
+                        <p>Comfortable but slightly heavy.</p>
+                    </div>
+                    <div class="review">
+                        <h4>Michael T. <small>Mar 3, 2025</small></h4>
+                        <p>Great build; app needs polish.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="shipping" class="tab-content">
+                <h2>Shipping & Returns</h2>
+                <p>Free over $50, express, next-day options.</p>
+                <p>Returns within 30 days if unused & in original packaging.</p>
+                <h3>Warranty</h3>
+                <!-- FIX: added missing contact info -->
+                <p>Email <a href="mailto:support@shopease.com">support@shopease.com</a> or call 1-800-123-4567.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="related-products">
+        <h2>You May Also Like</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="../images/product2.jpg" alt="Smart Watch">
+                <h3>Smart Watch</h3>
+                <!-- FIX: added data-product-price -->
+                <button class="add-to-cart-btn" 
+                data-product-id="2" 
+                data-product-name="Smart Watch"
+                    data-product-price="199.99"
+                    data-product-image="./images/product2.jpg">
+                    Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="../images/product3.jpg" alt="Bluetooth Speaker">
+                <h3>Bluetooth Speaker</h3>
+                <button class="add-to-cart-btn" 
+                data-product-id="3" 
+                data-product-name="Bluetooth Speaker"
+                    data-product-price="79.99"
+                    data-product-image="../images/product3.jpg"
+                    >Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="../images/product4.jpg" alt="Laptop Bag">
+                <h3>Laptop Bag</h3>
+                <button class="add-to-cart-btn" 
+                data-product-id="4" 
+                data-product-name="Laptop Bag"
+                    data-product-price="49.99"
+                    data-product-image="../images/product4.jpg">
+                    Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="recently-viewed">
+        <!-- FIX: populated empty section -->
+        <h2>Recently Viewed</h2>
+        <p>No recently viewed items.</p>
+    </section>
+
+    <footer>
+        <div class="footer-columns">
+            <!-- ... footer columns unchanged ... -->
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ShopEase. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- FIX: load cart.js before other scripts -->
+    <script src="../js/cart.js"></script>
+    <script src="../js/product-detail.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/theme.js"></script>
+</body>
+
+</html>

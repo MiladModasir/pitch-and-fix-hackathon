@@ -1,0 +1,60 @@
+/* contact.css */
+.contact-page {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.contact-page h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.contact-page p {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.form-group .required {
+  color: #d33;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.error-message {
+  color: #d33;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.form-success {
+  text-align: center;
+  margin-top: 1rem;
+  color: #4caf50;
+  font-size: 1rem;
+}
+
+.form-success i {
+  margin-right: 0.5rem;
+}
+
+.hidden {
+  display: none !important;
+}

@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ShopEase – Categories</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/cart.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/category.css">
+  <link rel="stylesheet" href="../css/product-detail.css">
+  <link rel="stylesheet" href="../css/theme.css">
+  <!-- product-detail.css likely not needed here -->
+  <style>
+    /* quick override for this page */
+    .hidden { display: none !important; }
+    .back-btn {
+      background: none;
+      border:none;
+      color: #00784d;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+  </style>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  >
+</head>
+<body>
+  <div class="theme-panel">
+    <div class="theme-body">
+    <span>Change theme</span>
+    <div class="btn-group">
+        <button data-toggle="Light" class="switcher-btn active">Light</button>
+        <button data-toggle="dark" class="switcher-btn">Dark</button>
+    </div>
+    <button class="theme-tab">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    </div>
+    </div>
+  <header>
+    <div class="logo-container">
+      <a href="../index.html">
+        <img src="../images/ShopEase-logo.svg" alt="ShopEase Logo" class="logo">
+      </a>
+    </div>
+    <nav class="main-nav">
+      <ul class="nav-items">
+        <li class="nav-item"><a href="../index.html">Home</a></li>
+        <li class="nav-item"><a href="./prouduct-detail.html">Products</a></li>
+        <li class="nav-item"><a href="../pages/about.html">About Us</a></li>
+        <li class="nav-item"><a href="../pages/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="cart-container">
+      <div class="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+      </div>
+      <div class="cart-dropdown" style="display: none;">
+      <div class="cart-items"></div>
+      <div class="cart-total"><p>Total: $<span id="cart-total-amount">0.00</span></p></div>
+      <button id="checkout-btn" class="checkout-btn">Checkout</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+    <!-- overview grid -->
+    <div class="category-listing">
+      <h1>Shop by Category</h1>
+      <div class="category-grid">
+        <div class="category-card">
+          <img src="../images/category1.jpg" alt="Electronics">
+          <h3>Electronics</h3>
+          <a href="categories.html#electronics" class="category-link">View All</a>
+        </div>
+        <div class="category-card">
+          <img src="../images/category2.jpg" alt="Clothing">
+          <h3>Clothing</h3>
+          <a href="categories.html#clothing" class="category-link">View All</a>
+        </div>
+        <div class="category-card">
+          <img src="../images/category3.jpg" alt="Home & Kitchen">
+          <h3>Home & Kitchen</h3>
+          <a href="categories.html#home" class="category-link">View All</a>
+        </div>
+        <div class="category-card">
+          <img src="../images/category4.jpg" alt="Sports & Outdoors">
+          <h3>Sports & Outdoors</h3>
+          <a href="categories.html#sports" class="category-link">View All</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Electronics detail -->
+    <section id="electronics" class="category-section hidden">
+      <a href="./categories.html"><button class="back-btn">← Back to Categories</button></a>
+      <h2>Electronics</h2>
+      <div class="search-container">
+        <input 
+          type="text"
+          class="search-input"
+          placeholder="Search products..."
+        />
+        <p class="no-result-message hidden">No products match your search.</p>
+      </div>
+      <div class="product-grid">
+        <!-- repeat for 1–6 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product101.jpg" alt="Noise-Cancelling Headphones">
+          </div>
+          <div class="product-details">
+            <h3>Noise-Cancelling Headphones</h3>
+            <p class="current-price">$129.99</p>
+            <button
+              class="add-to-cart-btn"
+              data-product-id="101"
+              data-product-name="Noise-Cancelling Headphones"
+              data-product-price="129.99"
+              data-product-image="../images/product101.jpg"
+            >Add to Cart</button>
+          </div>
+        </div>
+        <!-- … electronics2.jpg through product10.jpg … -->
+        <!-- 2 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product102.jpg" alt="Noise-Cancelling Headphones">
+          </div>
+          <div class="product-details">
+            <h3>Smart Fitness Traker</h3>
+            <p class="current-price">$49.99</p>
+            <button
+              class="add-to-cart-btn"
+              data-product-id="102"
+              data-product-name="Smart-Fitness Traker"
+              data-product-price="49.99"
+              data-product-image="../images/product102.jpg"
+            >Add to Cart</button>
+          </div>
+        </div>
+        <!-- 3 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product103.jpg" alt="Wireless Bluetooth Speaker">
+          </div>
+          <div class="product-details">
+            <h3>Wireless Bluetooth Speaker</h3>
+            <p class="current-price">$79.99</p>
+            <button class="add-to-cart-btn" 
+            data-product-id="103" 
+            data-product-name="Wireless Bluetooth Speaker"
+              data-product-price="79.99"
+              data-product-image="../images/product103.jpg">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <!-- 4 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product104.jpg" alt="4K Action Camera">
+          </div>
+          <div class="product-details">
+            <h3>4K Action Camera</h3>
+            <p class="current-price">$159.99</p>
+            <button class="add-to-cart-btn" data-product-id="104" 
+            data-product-name="4K Action Camera"
+              data-product-price="159.99"
+              data-product-image="../images/product104.jpg"
+              >
+              Add to Cart
+            </button>
+            
+          </div>
+        </div>
+        <!-- 5 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product105.jpg" alt="Noise-Cancelling Earbuds">
+          </div>
+          <div class="product-details">
+            <h3>Noise-Cancelling Earbuds</h3>
+            <p class="current-price">$89.99</p>
+            <button class="add-to-cart-btn" 
+            data-product-id="105" 
+            data-product-name="Noise-Cancelling Earbuds"
+              data-product-price="89.99"
+              data-product-image="../images/product105.jpg"
+              >
+              Add to Cart
+            </button>
+            
+          </div>
+        </div>
+        <!-- 6 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product106.jpg" alt="Smart Home Hub">
+          </div>
+          <div class="product-details">
+            <h3>Smart Home Hub</h3>
+            <p class="current-price">$69.99</p>
+            <button class="add-to-cart-btn" 
+            data-product-id="106" 
+            data-product-name="Smart Home Hub"
+              data-product-price="69.99"
+              data-product-image="../images/product106.jpg"
+              >
+              Add to Cart
+            </button>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clothing detail -->
+    <section id="clothing" class="category-section hidden">
+      <a href="./categories.html"><button class="back-btn">← Back to Categories</button></a>
+      <h2>Clothing</h2>
+      <div class="search-container">
+        <input 
+          type="text"
+          class="search-input"
+          placeholder="Search products..."
+        />
+        <p class="no-result-message hidden">No products match your search.</p>
+      </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product201.jpg" alt="Men’s Denim Jacket">
+          </div>
+          <div class="product-details">
+            <h3>Men’s Denim Jacket</h3>
+            <p class="current-price">$59.99</p>
+            <button
+              class="add-to-cart-btn"
+              data-product-id="201"
+              data-product-name="Men’s Denim Jacket"
+              data-product-price="59.99"
+              data-product-image="../images/product201.jpg"
+            >Add to Cart</button>
+            
+          </div>
+        </div>
+        <!-- … clothing2.jpg through clothing6.jpg … -->
+        <!-- 2 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product202.jpg" alt="Women’s Hoodie">
+          </div>
+          <div class="product-details">
+            <h3>Women’s Hoodie</h3>
+            <p class="current-price">$39.99</p>
+            <button class="add-to-cart-btn" 
+            data-product-id="202" 
+            data-product-name="Women’s Hoodie"
+              data-product-price="39.99"
+              data-product-image="../images/product202.jpg"
+              >
+              Add to Cart
+            </button>
+            
+          </div>
+        </div>
+        <!-- 3 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product203.jpg" alt="Graphic T-Shirt">
+          </div>
+          <div class="product-details">
+            <h3>Graphic T-Shirt</h3>
+            <p class="current-price">$19.99</p>
+            <button class="add-to-cart-btn" 
+            data-product-id="203" 
+            data-product-name="Graphic T-Shirt"
+              data-product-price="19.99"
+              data-product-image="../images/product203.jpg"
+              >
+              Add to Cart
+            </button>
+            
+          </div>
+        </div>
+        <!-- 4 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product204.jpg" alt="Summer Dress">
+          </div>
+          <div class="product-details">
+            <h3>Summer Dress</h3>
+            <p class="current-price">$49.99</p>
+            <button class="add-to-cart-btn" 
+            data-product-id="204" 
+            data-product-name="Summer Dress"
+              data-product-price="49.99"
+              data-product-image="../images/product204.jpg"
+              >
+              Add to Cart
+            
+          </div>
+        </div>
+        <!-- 5 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product205.jpg" alt="Slim-Fit Jeans">
+          </div>
+          <div class="product-details">
+            <h3>Slim-Fit Jeans</h3>
+            <p class="current-price">$44.99</p>
+            <button class="add-to-cart-btn" 
+            data-product-id="205" 
+            data-product-name="Slim-Fit Jeans"
+              data-product-price="44.99"
+              data-product-image="../images/product205.jpg"
+              >
+              Add to Cart
+            </button>
+            
+          </div>
+        </div>
+        <!-- 6 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product206.jpg" alt="Canvas Sneakers">
+          </div>
+          <div class="product-details">
+            <h3>Canvas Sneakers</h3>
+            <p class="current-price">$29.99</p>
+            <button class="add-to-cart-btn" data-product-id="206" data-product-name="Canvas Sneakers"
+              data-product-price="29.99"
+              data-product-image="../images/product206.jpg"
+              >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Home & Kitchen detail -->
+    <section id="home" class="category-section hidden">
+      <a href="./categories.html"><button class="back-btn">← Back to Categories</button></a>
+      <h2>Home & Kitchen</h2>
+      <div class="search-container">
+        <input 
+          type="text"
+          class="search-input"
+          placeholder="Search products..."
+        />
+        <p class="no-result-message hidden">No products match your search.</p>
+      </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product301.jpg" alt="Non-Stick Cookware Set">
+          </div>
+          <div class="product-details">
+            <h3>Non-Stick Cookware Set</h3>
+            <p class="current-price">$99.99</p>
+            <button
+              class="add-to-cart-btn"
+              data-product-id="301"
+              data-product-name="Non-Stick Cookware Set"
+              data-product-price="99.99"
+              data-product-image="../images/product301.jpg"
+            >Add to Cart</button>
+          </div>
+        </div>
+        <!-- … home2.jpg through home6.jpg … -->
+        <!-- 2 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product302.jpg" alt="Stainless Steel Knife Set">
+          </div>
+          <div class="product-details">
+            <h3>Stainless Steel Knife Set</h3>
+            <p class="current-price">$79.99</p>
+            <button class="add-to-cart-btn" 
+            data-product-id="302" 
+            data-product-name="Stainless Steel Knife Set"
+              data-product-price="79.99"
+              data-product-image="../images/product302.jpg">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <!-- 3 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product303.jpg" alt="Ceramic Dinnerware Set">
+          </div>
+          <div class="product-details">
+            <h3>Ceramic Dinnerware Set</h3>
+            <p class="current-price">$49.99</p>
+            <button class="add-to-cart-btn" 
+            data-product-id="303" 
+            data-product-name="Ceramic Dinnerware Set"
+              data-product-price="49.99"
+              data-product-image="../images/product303.jpg">
+              Add to Cart
+            </button>
+            
+          </div>
+        </div>
+        <!-- 4 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product304.jpg" alt="High-Power Blender">
+          </div>
+          <div class="product-details">
+            <h3>High-Power Blender</h3>
+            <p class="current-price">$89.99</p>
+            <button class="add-to-cart-btn" 
+            data-product-id="304" 
+            data-product-name="High-Power Blender"
+              data-product-price="89.99"
+              data-product-image="../images/product304.jpg">
+              Add to Cart
+            </button>
+            </div>
+        </div>
+        <!-- 5 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product305.jpg" alt="Digital Air Fryer">
+          </div>
+          <div class="product-details">
+            <h3>Digital Air Fryer</h3>
+            <p class="current-price">$129.99</p>
+            <button class="add-to-cart-btn" data-product-id="305" data-product-name="Digital Air Fryer"
+              data-product-price="129.99"
+              data-product-image="../images/product305.jpg">
+              Add to Cart
+            </button>
+            
+          </div>
+        </div>
+        <!-- 6 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product306.jpg" alt="Vacuum Sealer Machine">
+          </div>
+          <div class="product-details">
+            <h3>Vacuum Sealer Machine</h3>
+            <p class="current-price">$59.99</p>
+            <button class="add-to-cart-btn" 
+            data-product-id="306" 
+            data-product-name="Vacuum Sealer Machine"
+              data-product-price="59.99"
+              data-product-image="../images/product306.jpg">
+              Add to Cart
+            </button>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sports & Outdoors detail -->
+    <section id="sports" class="category-section hidden">
+      <a href="./categories.html"><button class="back-btn">← Back to Categories</button></a>
+      <h2>Sports & Outdoors</h2>
+      <div class="search-container">
+        <input 
+          type="text"
+          class="search-input"
+          placeholder="Search products..."
+        />
+        <p class="no-result-message hidden">No products match your search.</p>
+      </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product401.jpg" alt="Yoga Mat">
+          </div>
+          <div class="product-details">
+            <h3>Yoga Mat</h3>
+            <p class="current-price">$24.99</p>
+            <button
+              class="add-to-cart-btn"
+              data-product-id="401"
+              data-product-name="Yoga Mat"
+              data-product-price="24.99"
+              data-product-image="../images/product401.jpg"
+            >
+            Add to Cart
+          </button>
+            
+          </div>
+        </div>
+        <!-- … sports2.jpg through sports6.jpg … -->
+        <!-- 2 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product402.jpg" alt="Stainless Steel Water Bottle">
+          </div>
+          <div class="product-details">
+            <h3>Stainless Steel Water Bottle</h3>
+            <p class="current-price">$19.99</p>
+            <button class="add-to-cart-btn" 
+            data-product-id="402" 
+            data-product-name="Stainless Steel Water Bottle"
+              data-product-price="19.99"
+              data-product-image="../images/product402.jpg">
+              Add to Cart
+            </button>
+            
+          </div>
+        </div>
+        <!-- 3 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product403.jpg" alt="Adjustable Dumbbells">
+          </div>
+          <div class="product-details">
+            <h3>Adjustable Dumbbells</h3>
+            <p class="current-price">$89.99</p>
+            <button class="add-to-cart-btn" 
+            data-product-id="403" 
+            data-product-name="Adjustable Dumbbells"
+              data-product-price="89.99"
+              data-product-image="../images/product403.jpg">
+              Add to Cart
+            </button>
+            
+          </div>
+        </div>
+        <!-- 4 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product404.jpg" alt="Camping Tent">
+          </div>
+          <div class="product-details">
+            <h3>Camping Tent</h3>
+            <p class="current-price">$129.99</p>
+            <button class="add-to-cart-btn" 
+            data-product-id="404" 
+            data-product-name="Camping Tent"
+              data-product-price="129.99"
+              data-product-image="../images/product404.jpg">
+              Add to Cart
+            </button>
+            
+          </div>
+        </div>
+        <!-- 5 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product405.jpg" alt="Hiking Backpack">
+          </div>
+          <div class="product-details">
+            <h3>Hiking Backpack</h3>
+            <p class="current-price">$69.99</p>
+            <button class="add-to-cart-btn" 
+            data-product-id="405" 
+            data-product-name="Hiking Backpack"
+              data-product-price="69.99"
+              data-product-image="../images/product405.jpg">
+              Add to Cart
+            </button>
+            
+          </div>
+        </div>
+        <!-- 6 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product406.jpg" alt="Fitness Resistance Bands">
+          </div>
+          <div class="product-details">
+            <h3>Fitness Resistance Bands</h3>
+            <p class="current-price">$14.99</p>
+            <button class="add-to-cart-btn" 
+            data-product-id="406" 
+            data-product-name="Fitness Resistance Bands"
+              data-product-price="14.99"
+              data-product-image="../images/product406.jpg">
+              Add to Cart
+            </button>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+
+
+<script src="../js/cart.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/categories.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/theme.js"></script>
+</body>
+</html>

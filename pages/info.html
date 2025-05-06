@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ShopEase • Info</title>
+  <link rel="stylesheet" href="../css/info.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/cart.css">
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .hidden { display: none; }
+    .info-nav { display: none; gap:1rem;}
+    .info-nav a { padding:.5rem 1rem; background:#f0f0f0; border-radius:4px; text-decoration:none; color:#333; }
+    .info-nav a.active { background:#0078d4; color:#fff; }
+    .info-section { max-width:800px; margin:0 auto; padding:1rem; }
+  </style>
+</head>
+<body>
+  <div class="theme-panel">
+    <div class="theme-body">
+    <span>Change theme</span>
+    <div class="btn-group">
+        <button data-toggle="Light" class="switcher-btn active">Light</button>
+        <button data-toggle="dark" class="switcher-btn">Dark</button>
+    </div>
+    <button class="theme-tab">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    </div>
+    </div>
+  <div id="site-header"></div>
+
+  <main>
+    <nav class="info-nav">
+      <a href="#faq"        data-section="faq"></a>
+      <a href="#shipping"   data-section="shipping"></a>
+      <a href="#terms"      data-section="terms"></a>
+      <a href="#deals"      data-section="deals"></a>
+      <a href="#new-arrivals" data-section="new-arrivals"></a>
+      <a href="#blog"       data-section="blog"></a>
+      <a href="#careers"    data-section="careers"></a>
+      <a href="#partners"   data-section="partners"></a>
+    </nav>
+
+    <!-- FAQ -->
+    <section id="faq" class="info-section hidden">
+      <a href="../index.html"><button class="back-btn">← Back to Home</button></a>
+      <h1>FAQ</h1>
+      <div class="accordion">
+        <div class="accordion-item">
+          <!-- <button class="accordion-header">How long does shipping take?</button>
+          <div class="accordion-body hidden"> -->
+            <p>Standard: 3–5 business days. Express: 1–2 business days.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <!-- <button class="accordion-header">What is your return policy?</button>
+          <div class="accordion-body hidden"> -->
+            <p>You can return any unused item within 30 days of delivery for a full refund.</p>
+          </div>
+        </div>
+        <!-- add more Q&A pairs as needed -->
+      </div>
+    </section>
+    
+
+    <!-- Shipping & Returns -->
+    <section id="shipping" class="info-section hidden">
+      <a href="../index.html"><button class="back-btn">← Back to Home</button></a>
+      <h1>Shipping & Returns</h1>
+      <h2>Shipping Information</h2>
+      <p>We offer free standard shipping on orders over $50. Orders ship within 1–2 business days.</p>
+      <ul>
+        <li><strong>Standard</strong>: 3–5 business days (Free over $50)</li>
+        <li><strong>Express</strong>: 1–2 business days ($10)</li>
+        <li><strong>Overnight</strong>: Next-day if ordered by 2pm EST ($20)</li>
+      </ul>
+      <h2>Returns</h2>
+      <p>Returns accepted within 30 days if:</p>
+      <ul>
+        <li>Unused & in original packaging</li>
+        <li>With proof of purchase</li>
+      </ul>
+      <p>Customer pays return shipping unless item was defective or incorrect.</p>
+    </section>
+
+    <!-- Terms & Conditions -->
+    <section id="terms" class="info-section hidden">
+      <a href="../index.html"><button class="back-btn">← Back to Home</button></a>
+      <h1>Terms & Conditions</h1>
+      <p>Welcome to ShopEase! By using our site, you agree to the following terms:</p>
+      <ol>
+        <li><strong>Use of Site</strong>: You may browse and purchase products for personal use only.</li>
+        <li><strong>Intellectual Property</strong>: All content is owned by ShopEase.</li>
+        <li><strong>Privacy</strong>: Your data is governed by our Privacy Policy.</li>
+        <li><strong>Limitation of Liability</strong>: We are not liable for indirect damages.</li>
+        <!-- add additional clauses as needed -->
+      </ol>
+    </section>
+    <!-- Deals -->
+    <section id="deals" class="info-section hidden">
+      <a href="../index.html"><button class="back-btn">← Back to Home</button></a>
+      <div class="cart-container">
+        <div class="cart-icon">
+            <i class="fas fa-shopping-cart" style="position: absolute; right: 0; top: 10px;"></i>
+            <span class="cart-count">0</span>
+        </div>
+        <!-- fixed: dropdown markup left intact -->
+        <div class="cart-dropdown" style="display: none;">
+            <div class="cart-items"></div>
+            <div class="cart-total">
+                <p>Total: $<span id="cart-total-amount">0.00</span></p>
+            </div>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+    </div>
+      <h1>Deals</h1>
+      <div class="product-grid">
+        <!-- example sale item -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product1.jpg" alt="Wireless Headphones">
+            <div class="product-tag">Sale</div>
+          </div>
+          <div class="product-details">
+            <h3>Wireless Headphones</h3>
+            <p class="original-price">$120.00</p>
+            <p class="sale-price">$99.99</p>
+            <button class="add-to-cart-btn"
+                    data-product-id="1"
+                    data-product-name="Wireless Headphones"
+                    data-product-price="99.99">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <!-- repeat other sale items… up to however many you want -->
+      </div>
+    </section>
+
+    <!-- New Arrivals -->
+    <section id="new-arrivals" class="info-section hidden">
+      <a href="../index.html"><button class="back-btn">← Back to Home</button></a>
+      <div class="cart-container">
+        <div class="cart-icon">
+            <i class="fas fa-shopping-cart" style="position: absolute; right: 0; top: 10px;"></i>
+            <span class="cart-count">0</span>
+        </div>
+        <!-- fixed: dropdown markup left intact -->
+        <div class="cart-dropdown" style="display: none;">
+            <div class="cart-items"></div>
+            <div class="cart-total">
+                <p>Total: $<span id="cart-total-amount">0.00</span></p>
+            </div>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+    </div>
+      <h1>New Arrivals</h1>
+      <div class="product-grid">
+        <!-- example new item -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="../images/product501.jpg" alt="Smart Glasses">
+            <div class="product-tag">New</div>
+          </div>
+          <div class="product-details">
+            <h3>Smart Glasses</h3>
+            <p class="current-price">$149.99</p>
+            <button class="add-to-cart-btn"
+                    data-product-id="501"
+                    data-product-name="Smart Glasses"
+                    data-product-price="149.99">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <!-- repeat other new arrivals… -->
+      </div>
+    </section>
+    
+
+    <!-- Blog -->
+    <section id="blog" class="info-section hidden">
+      <a href="../index.html"><button class="back-btn">← Back to Home</button></a>
+      <h1>Blog</h1>
+      <article class="blog-post">
+        <h2><a href="#">5 Tips for Better Sound Quality</a></h2>
+        <p class="post-meta">April 20, 2025 • by Jane Doe</p>
+        <p>Learn how to get the most out of your headphones, from fit to firmware updates...</p>
+        <a href="#" class="read-more">Read More →</a>
+      </article>
+      <!-- repeat for more posts -->
+    </section>
+
+    <!-- Careers -->
+    <section id="careers" class="info-section hidden">
+      <a href="../index.html"><button class="back-btn">← Back to Home</button></a>
+      <h1>Careers</h1>
+      <div class="job-listing">
+        <h2>Frontend Developer</h2>
+        <p>Location: Remote • Full-time</p>
+        <p>Requirements: 3+ years JS, React experience, passion for UX.</p>
+        <a href="mailto:jobs@shopease.com?subject=Frontend%20Developer%20Application" class="cta-button">Apply Now</a>
+      </div>
+      <div class="job-listing">
+        <h2>Customer Support Specialist</h2>
+        <p>Location: New York, NY • Part-time</p>
+        <p>Requirements: Excellent communication skills, 1+ year in support.</p>
+        <a href="mailto:jobs@shopease.com?subject=Customer%20Support%20Application" class="cta-button">Apply Now</a>
+      </div>
+      <!-- add more openings -->
+    </section>
+    
+
+    <!-- Partners -->
+    <section id="partners" class="info-section hidden">
+      <a href="../index.html"><button class="back-btn">← Back to Home</button></a>
+      <h1>Partners</h1>
+      <div class="partner-logos">
+        <img src="../images/partner1.png" alt="Partner One Logo">
+        <img src="../images/partner2.png" alt="Partner Two Logo">
+        <img src="../images/partner3.png" alt="Partner Three Logo">
+        <!-- add more logos -->
+      </div>
+      <p>Interested in partnering with ShopEase? <a href="mailto:partners@shopease.com">Contact us!</a></p>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll(".info-section");
+      const links    = document.querySelectorAll(".info-nav a");
+
+      function hideAll() {
+        sections.forEach(s => s.classList.add("hidden"));
+        links.forEach(a => a.classList.remove("active"));
+      }
+      function show(id) {
+        const sec = document.getElementById(id);
+        const link = document.querySelector(`.info-nav a[data-section="${id}"]`);
+        if (sec) sec.classList.remove("hidden");
+        if (link) link.classList.add("active");
+      }
+
+      // on click in nav
+      links.forEach(a => {
+        a.addEventListener("click", e => {
+          e.preventDefault();
+          const id = a.dataset.section;
+          history.replaceState(null, "", `#${id}`);
+          hideAll();
+          show(id);
+        });
+      });
+
+      // initial load: show matching hash or default (FAQ)
+      const initial = window.location.hash.replace("#","");
+      hideAll();
+      show(initial || "faq");
+    });
+  </script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/theme.js"></script>
+  <!-- <script src="../js/includes.js"></script> -->
+</body>
+</html>
